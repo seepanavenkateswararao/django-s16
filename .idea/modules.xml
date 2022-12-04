@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Bank_Management_System_Django/.idea/Bank_Management_System_Django.iml" filepath="$PROJECT_DIR$/../Bank_Management_System_Django/.idea/Bank_Management_System_Django.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/django-s16.iml" filepath="$PROJECT_DIR$/.idea/django-s16.iml" />
+    </modules>
+  </component>
+</project>

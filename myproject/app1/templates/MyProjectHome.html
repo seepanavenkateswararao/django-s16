@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDP-71 Bank </title>
+    <style>
+        .dropbtn {
+          background-color: #ed188aee;
+          color: white;
+          padding: 12px;
+          font-size: 16px;
+          border: none;
+          cursor: pointer;
+        }
+
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          right: 10;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #f1f1f1;}
+        .dropdown:hover .dropdown-content {display: block;}
+        .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+        .shadow{
+        color: rgb(0, 0, 0);
+        text-align: left;
+        width: 1430px;
+        height: 150px;
+        background-color: rgb(167, 167, 224);
+        box-shadow: rgb(219, 218, 220) 8px 2px 8px;
+        }
+        * {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+
+
+
+.container {
+  /* 1070 1440*/
+  --max-width: 1070px;
+  --padding: 1rem;
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+}
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: none;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+.btn-border {
+  color: var(--clr-primary-pink-100);
+  background-color: var(--clr-primary-white-100);
+  border: 1px solid var(--clr-primary-pink-100);
+}
+/* header */
+body {
+  font-family: var(--ff-primary);
+}
+a {
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  letter-spacing: 2px;
+}
+
+.nav-search-btn {
+  display: flex;
+  gap: 2rem;
+}
+
+/* header section */
+.even-columns {
+  margin-top: 75px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.left {
+  flex: 50%;
+}
+.right {
+  flex: 50%;
+}
+.left-items {
+  max-width: 455px;
+}
+.header-heading {
+  margin-bottom: 25px;
+}
+.header-p {
+  margin-bottom: 50px;
+}
+
+.contact-info-icons > li {
+  display: inline-block;
+  margin: none;
+}
+
+.main-buttons {
+  position: relative;
+}
+.main-buttons > button:first-child {
+  margin-right: 10px;
+}
+
+.btn-main {
+  padding: 12px 22px;
+}
+
+.contact-info-icons {
+  position: absolute;
+  top: 680px;
+  list-style-type: none;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.empty-line {
+  height: 24px;
+  width: 1px;
+  background-color: var(--clr-secondary-black-20);
+}
+
+.svg-dimension {
+  height: 20px;
+  width: 20px;
+}
+
+.float-loan {
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+  gap: 18px;
+  background: #ffffff;
+  box-shadow: 4px 4px 58px rgba(0, 0, 0, 0.12);
+  border-radius: 56px;
+  float: right;
+}
+
+.pink-background {
+  width: 900px;
+  height: 550px;
+  background-color: var(--clr-bg-pink);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.img-family {
+  max-width: 600px;
+  /* height: 610px; */
+  float: right;
+  overflow: visible;
+  position: relative;
+}
+.car-loan {
+  position: absolute;
+  top: 144px;
+  right: 800px;
+}
+
+.home-loan {
+  position: absolute;
+  top: 250px;
+  right: 400px;
+}
+
+.creating-extraordinary {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.creating-extraordinary > center > h2 {
+  margin-bottom: 16px;
+}
+
+/* GRID SECTION */
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 100px;
+  column-gap: 8.5rem;
+  row-gap: 4rem;
+}
+
+.grid-cols > img {
+  margin-bottom: 14px;
+  width: 37px;
+  height: 37px;
+}
+.grid-cols > h3 {
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+/* OUR SERVICES */
+.services-section {
+  padding: 100px 0;
+}
+.services-section > center > h3 {
+  margin-bottom: 20px;
+}
+.img-grid {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 50px;
+}
+.services-flex {
+  margin-top: 22px;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+.services-flex > p {
+  font-size: 21px;
+}
+
+.services-arrow {
+  background-color: #fce0ef;
+  padding: 6px;
+  border-radius: 50%;
+}
+</style>
+</head>
+<body style="background-color: rgb(222, 222, 234);">
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SDP-71 Bank <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+        <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z"/>
+      </svg>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="dropdown" >
+        <button class="dropbtn">Signup|Login</button>
+        <div class="dropdown-content">
+          <a href="http://127.0.0.1:8000/MyProjectSignup">Signup </a>
+          <a href="http://127.0.0.1:8000/MyProjectLogin">Login</a>
+        </div>
+      </div> </h3>
+      <hr size="1" width="100%" color="red">
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="dropdown" >
+        <button class="dropbtn">Services</button>
+        <div class="dropdown-content">
+          <a href="http://127.0.0.1:8000/payments.html">Bank Payments</a>
+          <a href="#Internet bankings">Internet bankings</a>
+        </div>
+      </div>
+
+      <div class="dropdown" >
+        <button class="dropbtn">FAQ</button>
+        <div class="dropdown-content">
+          <a href="http://127.0.0.1:8000/faq.html">Bank Payment Faq</a>
+          <a href="#Internet banking Faq">Internet banking Faq</a>
+          <a href="#Signup Faq">Signup Faq</a>
+        </div>
+      </div>
+
+      <div class="dropdown" >
+        <button class="dropbtn">Apply for Account</button>
+        <div class="dropdown-content">
+          <a href="http://127.0.0.1:8000/MyProjectSignup">Apply Current Account</a>
+          <a href="#Apply Savings Bank Account">Apply Savings Bank Account</a>
+        </div>
+      </div>
+
+      <div class="dropdown" >
+        <button class="dropbtn">Apply For Loan</button>
+        <div class="dropdown-content">
+            <a href="http://127.0.0.1:8000/education_loan.html">Apply Educational Loan</a>
+          <a href="#Apply Home Loan">Apply Home Loan</a>
+          <a href="#Apply Vehicle Loan">Apply Vehicle Loan</a>
+
+          <a href="#Apply Business Loan">Apply Business Loan</a>
+        </div>
+      </div>
+
+      <div class="dropdown" >
+        <button class="dropbtn">Offers</button>
+        <div class="dropdown-content">
+          <a href="#Mastercard">Mastercard</a>
+          <a href="#Visa">Visa</a>
+          <a href="#Rupay">Rupay</a>
+        </div>
+      </div>
+      <div class="dropdown" >
+        <button class="dropbtn">Status</button>
+        <div class="dropdown-content">
+          <a href="http://127.0.0.1:8000/indexs.html">Progressive Bar</a>
+<!--          <a href="#Export Finance">Export Finance</a>-->
+<!--          <a href="#Channel Credit">Channel Credit</a>-->
+<!--          <a href="#Traders">Traders</a>-->
+<!--          <a href="#Dual Currency Swing Limit">Dual Currency Swing Limit</a>-->
+<!--          <a href="#Exporters Gold Card">Exporters Gold Card</a>-->
+        </div>
+      </div>
+      <div class="dropdown" >
+        <button class="dropbtn">NRI</button>
+        <div class="dropdown-content">
+          <a href="http://127.0.0.1:8000/nri.html">NRI Information</a>
+          <a href="#NRI Queries">NRI Queries</a>
+          <a href="#NRO">NRO</a>
+          <a href="#Resident currency foriegn account">Resident currency foriegn account</a>
+          <a href="#Non-Resident currency foriegn account">Non-Resident currency foriegn account</a>
+          <a href="#NRI Remittances">NRI Remittances</a>
+        </div>
+      </div>
+      <div class="dropdown" >
+        <button class="dropbtn">Term Deposits</button>
+        <div class="dropdown-content">
+          <a href="http://127.0.0.1:8000/deposits.html">Term Deposits</a>
+        </div>
+      </div>
+      <div class="dropdown" >
+        <button class="dropbtn">Fast Tag</button>
+        <div class="dropdown-content">
+          <a href="http://127.0.0.1:8000/fastag.html">Fast Tag</a>
+        </div>
+      </div>
+      <div class="dropdown" >
+        <button class="dropbtn">Retail Products</button>
+        <div class="dropdown-content">
+          <a href="http://127.0.0.1:8000/faq.html">Retail Products</a>
+        </div>
+      </div>
+     <div class="dropdown" >
+        <button class="dropbtn">About us</button>
+        <div class="dropdown-content">
+          <a href="http://127.0.0.1:8000/About_us.html">About_us</a>
+        </div>
+      </div>
+           <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 5</div>
+          <img src="/static/images/img4.jpg" style="width:100%">
+          <div class="text">1</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 5</div>
+          <img src="/static/images/img5.png" style="width:100%">
+          <div class="text">2</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 5</div>
+          <img src="/static/images/img1.jpg" style="width:100%">
+          <div class="text">3</div>
+        </div>
+        <div class="mySlides fade">
+          <div class="numbertext">4 / 5</div>
+          <img src="/static/images/img2.jpg" style="width:100%">
+          <div class="text">4</div>
+        </div>
+        <div class="mySlides fade">
+          <div class="numbertext">5 / 5</div>
+          <img src="/static/images/img3.jpg" style="width:100%">
+          <div class="text">5</div>
+        </div>
+
+        </div>
+        <br>
+        <div style="text-align:center">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+         <div class="creating-extraordinary">
+          <center>
+            <h2 class="text-black-80 fw-700 fs-section-title">
+              Creating Extraordinary Customer Experience
+            </h2>
+          </center>
+          <center>
+            <p class="text-black-40 fw-400 fs-500">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+              bibendum egetmorbi <br />
+              dignissim eu pharetra consequat montes, sagittis.
+            </p>
+          </center>
+        </div>
+      </div>
+    <section>
+      <div class="container grid-section">
+        <div class="grid-cols">
+            <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M23.125 3.08331C17.9185 3.0855 13.4564 6.80585 12.5179 11.9271C16.9995 9.47471 22.6205 11.1197 25.0729 15.6012C26.5869 18.3679 26.5869 21.7153 25.0729 24.482C30.9332 23.4085 34.8137 17.7875 33.7402 11.9272C32.8014 6.80275 28.3347 3.08134 23.125 3.08331Z" fill="#FCE0EF"/>
+<path d="M10.7917 33.9167C15.0489 33.9167 18.5 30.4655 18.5 26.2083C18.5 21.9511 15.0489 18.5 10.7917 18.5C6.53451 18.5 3.08337 21.9511 3.08337 26.2083C3.08337 30.4655 6.53451 33.9167 10.7917 33.9167Z" fill="#ED017F"/>
+<path d="M16.9584 10.7917C12.2048 10.7922 8.22545 14.3955 7.75464 19.1257C11.664 17.446 16.1948 19.2536 17.8744 23.1629C18.7087 25.1046 18.7087 27.3037 17.8744 29.2454C22.9577 28.74 26.6689 24.2094 26.1634 19.1261C25.693 14.3951 21.7127 10.7913 16.9584 10.7917Z" fill="#F899CC"/>
+</svg>
+
+            <h3 class="fw-700 fs-600 text-black-70">Integrity</h3>
+            <p class="text-black-40 fw-400 fs-400">Displaying the highest level of integrity in the way we conduct out business</p>
+          </img>
+        </div>
+        <div class="grid-cols">
+          <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21.4791 13.875C20.202 13.875 19.1666 12.8397 19.1666 11.5625C19.1666 10.2853 20.202 9.25 21.4791 9.25C22.7563 9.25 23.7916 10.2853 23.7916 11.5625C23.7902 12.8391 22.7557 13.8736 21.4791 13.875Z" fill="#FCE0EF"/>
+<path d="M29.9583 3.08331H8.375C5.82377 3.09076 3.75745 5.15709 3.75 7.70831V21.3675L9.73167 15.3858C11.5624 13.6437 14.4377 13.6437 16.2683 15.3858L20.6951 19.8366L22.0633 18.4684C23.8724 16.6698 26.7943 16.6698 28.6033 18.4684L34.5833 24.4483V7.70831C34.5759 5.15709 32.5096 3.09076 29.9583 3.08331ZM21.4792 13.875C20.202 13.875 19.1667 12.8396 19.1667 11.5625C19.1667 10.2853 20.202 9.24998 21.4792 9.24998C22.7563 9.24998 23.7917 10.2853 23.7917 11.5625C23.7903 12.8391 22.7557 13.8736 21.4792 13.875Z" fill="#F899CC"/>
+<path d="M16.2683 15.3858C14.4377 13.6438 11.5623 13.6438 9.73167 15.3858L3.75 21.3675V29.2917C3.75746 31.8429 5.82379 33.9092 8.375 33.9167H29.9583C31.215 33.9162 32.4172 33.4041 33.2883 32.4983L16.2683 15.3858Z" fill="#ED017F"/>
+<path d="M34.5833 24.4484L28.6034 18.4684C26.7943 16.6699 23.8724 16.6699 22.0633 18.4684L20.6951 19.8366L33.2816 32.4915C34.1174 31.6362 34.5847 30.4875 34.5833 29.2917V24.4484Z" fill="#FCE0EF"/>
+</svg>
+
+            <h3 class="fw-700 fs-600 text-black-70">Demonstrate</h3>
+            <p class="text-black-40 fw-400 fs-400">Demonstrating a strong Will to win in the market place</p>
+          </img>
+        </div>
+        <div class="grid-cols">
+          <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.49996 24.6666C4.79708 24.6666 3.41663 23.2862 3.41663 21.5833C3.41663 19.8804 4.79708 18.5 6.49996 18.5C8.20284 18.5 9.58329 19.8804 9.58329 21.5833C9.58109 23.2853 8.20193 24.6644 6.49996 24.6666ZM6.49996 9.24998C4.79708 9.24998 3.41663 7.86953 3.41663 6.16665C3.41663 4.46377 4.79708 3.08331 6.49996 3.08331C8.20284 3.08331 9.58329 4.46377 9.58329 6.16665C9.58109 7.86862 8.20193 9.24778 6.49996 9.24998ZM21.9166 9.24998C20.2137 9.24998 18.8333 7.86953 18.8333 6.16665C18.8333 4.46377 20.2137 3.08331 21.9166 3.08331C23.6195 3.08331 25 4.46377 25 6.16665C24.9978 7.86862 23.6186 9.24778 21.9166 9.24998ZM21.9166 24.6666C20.2137 24.6666 18.8333 23.2862 18.8333 21.5833C18.8333 19.8804 20.2137 18.5 21.9166 18.5C23.6195 18.5 25 19.8804 25 21.5833C24.9978 23.2853 23.6186 24.6644 21.9166 24.6666Z" fill="#F467B2"/>
+<path d="M15.75 33.9166C14.0471 33.9166 12.6666 32.5362 12.6666 30.8333C12.6666 29.1304 14.0471 27.75 15.75 27.75C17.4528 27.75 18.8333 29.1304 18.8333 30.8333C18.8311 32.5353 17.4519 33.9144 15.75 33.9166ZM15.75 18.5C14.0471 18.5 12.6666 17.1195 12.6666 15.4166C12.6666 13.7138 14.0471 12.3333 15.75 12.3333C17.4528 12.3333 18.8333 13.7138 18.8333 15.4166C18.8311 17.1186 17.4519 18.4978 15.75 18.5ZM31.1666 18.5C29.4637 18.5 28.0833 17.1195 28.0833 15.4166C28.0833 13.7138 29.4637 12.3333 31.1666 12.3333C32.8695 12.3333 34.25 13.7138 34.25 15.4166C34.2478 17.1186 32.8686 18.4978 31.1666 18.5ZM31.1666 33.9166C29.4637 33.9166 28.0833 32.5362 28.0833 30.8333C28.0833 29.1304 29.4637 27.75 31.1666 27.75C32.8695 27.75 34.25 29.1304 34.25 30.8333C34.2478 32.5353 32.8686 33.9144 31.1666 33.9166Z" fill="#ED017F"/>
+<path d="M19.2623 7.70833C18.6902 6.76016 18.6902 5.57317 19.2623 4.625H9.15418C9.72627 5.57317 9.72627 6.76016 9.15418 7.70833H19.2623ZM6.49992 18.5C7.04286 18.5031 7.57511 18.6512 8.04159 18.9291V8.82092C7.09341 9.39302 5.90642 9.39302 4.95825 8.82092V18.9291C5.42473 18.6512 5.95697 18.5031 6.49992 18.5Z" fill="#FCE0EF"/>
+<path d="M31.1666 27.75C31.7095 27.7531 32.2418 27.9012 32.7083 28.1791V18.0709C31.7601 18.643 30.5731 18.643 29.6249 18.0709V28.1791C30.0914 27.9012 30.6236 27.7531 31.1666 27.75ZM15.7499 27.75C16.2929 27.7531 16.8251 27.9012 17.2916 28.1791V18.0709C16.3434 18.643 15.1564 18.643 14.2083 18.0709V28.1791C14.6747 27.9012 15.207 27.7531 15.7499 27.75Z" fill="#F467B2"/>
+<path d="M19.2623 20.0417H17.2916V23.125H19.2623C18.6902 22.1768 18.6902 20.9899 19.2623 20.0417ZM14.2083 23.125V20.0417H9.15417C9.72627 20.9899 9.72627 22.1768 9.15417 23.125H14.2083Z" fill="#FCE0EF"/>
+<path d="M28.5123 29.2917H18.4042C18.9763 30.2398 18.9763 31.4268 18.4042 32.375H28.5123C27.9402 31.4268 27.9402 30.2398 28.5123 29.2917ZM28.5123 16.9583C27.9402 16.0102 27.9402 14.8232 28.5123 13.875H18.4042C18.9763 14.8232 18.9763 16.0102 18.4042 16.9583H28.5123Z" fill="#F467B2"/>
+<path d="M23.4582 13.875V8.82092C22.51 9.39302 21.323 9.39302 20.3749 8.82092V13.875H23.4582ZM20.3749 16.9583V18.9291C21.323 18.357 22.51 18.357 23.4582 18.9291V16.9583H20.3749Z" fill="#FCE0EF"/>
+</svg>
+
+            <h3 class="fw-700 fs-600 text-black-70">Diversity</h3>
+            <p class="text-black-40 fw-400 fs-400">Promoting Deversity in the work place community</p>
+          </img>
+        </div>
+        <div class="grid-cols">
+          <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.24996 25.4375C8.18277 25.4375 7.13954 25.121 6.2522 24.5281C5.36486 23.9352 4.67326 23.0925 4.26486 22.1065C3.85646 21.1206 3.74961 20.0357 3.95781 18.989C4.16601 17.9423 4.67991 16.9808 5.43453 16.2262C6.18915 15.4716 7.1506 14.9577 8.19729 14.7495C9.24398 14.5413 10.3289 14.6482 11.3149 15.0565C12.3008 15.4649 13.1435 16.1565 13.7364 17.0439C14.3293 17.9312 14.6458 18.9745 14.6458 20.0416C14.6441 21.4722 14.075 22.8436 13.0635 23.8552C12.0519 24.8667 10.6805 25.4358 9.24996 25.4375Z" fill="#F899CC"/>
+<path d="M13.3204 23.544C12.8208 24.1371 12.1977 24.6139 11.4946 24.9409C10.7915 25.268 10.0254 25.4375 9.24996 25.4375C8.47451 25.4375 7.70843 25.268 7.00533 24.9409C6.30224 24.6139 5.67911 24.1371 5.17956 23.544C4.06954 24.2322 3.15309 25.1918 2.51661 26.3322C1.88012 27.4727 1.54458 28.7564 1.54163 30.0625C1.54163 30.4714 1.70405 30.8635 1.99317 31.1526C2.28229 31.4417 2.67442 31.6042 3.08329 31.6042H15.4166C15.8255 31.6042 16.2176 31.4417 16.5067 31.1526C16.7959 30.8635 16.9583 30.4714 16.9583 30.0625C16.9553 28.7564 16.6198 27.4727 15.9833 26.3322C15.3468 25.1918 14.4304 24.2322 13.3204 23.544ZM27.75 25.4375C26.6828 25.4375 25.6395 25.121 24.7522 24.5281C23.8649 23.9352 23.1733 23.0925 22.7649 22.1065C22.3565 21.1206 22.2496 20.0357 22.4578 18.989C22.666 17.9423 23.1799 16.9808 23.9345 16.2262C24.6891 15.4716 25.6506 14.9577 26.6973 14.7495C27.744 14.5413 28.8289 14.6482 29.8149 15.0565C30.8008 15.4649 31.6435 16.1565 32.2364 17.0439C32.8293 17.9312 33.1458 18.9745 33.1458 20.0416C33.1441 21.4722 32.575 22.8436 31.5635 23.8552C30.5519 24.8667 29.1805 25.4358 27.75 25.4375Z" fill="#F467B2"/>
+<path d="M31.8205 23.544C31.3209 24.1371 30.6978 24.6139 29.9947 24.9409C29.2916 25.268 28.5255 25.4375 27.7501 25.4375C26.9746 25.4375 26.2086 25.268 25.5055 24.9409C24.8024 24.6139 24.1792 24.1371 23.6797 23.544C22.5697 24.2322 21.6532 25.1918 21.0167 26.3322C20.3802 27.4727 20.0447 28.7565 20.0417 30.0625C20.0417 30.4714 20.2042 30.8635 20.4933 31.1526C20.7824 31.4417 21.1745 31.6042 21.5834 31.6042H33.9167C34.3256 31.6042 34.7178 31.4417 35.0069 31.1526C35.296 30.8635 35.4584 30.4714 35.4584 30.0625C35.4555 28.7565 35.1199 27.4727 34.4834 26.3322C33.8469 25.1918 32.9305 24.2322 31.8205 23.544V23.544Z" fill="#F13499"/>
+<path d="M26.5275 8.93085L23.4441 5.84751C23.1542 5.56275 22.7635 5.40402 22.3571 5.40586C21.9507 5.4077 21.5614 5.56996 21.274 5.85734C20.9867 6.14472 20.8244 6.53395 20.8226 6.94036C20.8207 7.34677 20.9794 7.73746 21.2642 8.02743L21.7159 8.47914H15.2842L15.7359 8.02743C16.022 7.73772 16.1818 7.34659 16.1805 6.93945C16.1792 6.5323 16.0169 6.1422 15.729 5.8543C15.4411 5.56641 15.051 5.40411 14.6438 5.40284C14.2367 5.40157 13.8456 5.56142 13.5559 5.84751L10.4725 8.93085C10.3294 9.07396 10.2158 9.24388 10.1383 9.43091C10.0608 9.61794 10.0209 9.8184 10.0209 10.0208C10.0209 10.2233 10.0608 10.4238 10.1383 10.6108C10.2158 10.7978 10.3294 10.9677 10.4725 11.1109L13.5559 14.1942C13.8456 14.4803 14.2367 14.6401 14.6439 14.6388C15.051 14.6375 15.4411 14.4752 15.729 14.1873C16.0169 13.8994 16.1792 13.5093 16.1805 13.1021C16.1817 12.695 16.0219 12.3039 15.7358 12.0142L15.2841 11.5625H21.7157L21.264 12.0142C20.9749 12.3033 20.8126 12.6954 20.8126 13.1042C20.8126 13.513 20.975 13.9051 21.2641 14.1942C21.5532 14.4833 21.9453 14.6457 22.3541 14.6456C22.763 14.6456 23.1551 14.4832 23.4441 14.1941L26.5275 11.1108C26.6706 10.9676 26.7842 10.7977 26.8617 10.6107C26.9392 10.4237 26.9791 10.2232 26.9791 10.0208C26.9791 9.81837 26.9392 9.61791 26.8617 9.43089C26.7842 9.24388 26.6706 9.07396 26.5275 8.93085Z" fill="#ED017F"/>
+</svg>
+
+            <h3 class="fw-700 fs-600 text-black-70">Teamwork </h3>
+            <p class="text-black-40 fw-400 fs-400">Lorem ipsum dolor sit amer consectetur adipiscing elit.  A semper aenean id pen</p>
+          </img>
+        </div>
+        <div class="grid-cols">
+          <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M23.125 3.08331C17.9185 3.0855 13.4564 6.80585 12.5179 11.9271C16.9995 9.47471 22.6205 11.1197 25.0729 15.6012C26.5869 18.3679 26.5869 21.7153 25.0729 24.482C30.9332 23.4085 34.8137 17.7875 33.7402 11.9272C32.8014 6.80275 28.3347 3.08134 23.125 3.08331Z" fill="#FCE0EF"/>
+<path d="M10.7917 33.9167C15.0489 33.9167 18.5 30.4655 18.5 26.2083C18.5 21.9511 15.0489 18.5 10.7917 18.5C6.53451 18.5 3.08337 21.9511 3.08337 26.2083C3.08337 30.4655 6.53451 33.9167 10.7917 33.9167Z" fill="#ED017F"/>
+<path d="M16.9584 10.7917C12.2048 10.7922 8.22545 14.3955 7.75464 19.1257C11.664 17.446 16.1948 19.2536 17.8744 23.1629C18.7087 25.1046 18.7087 27.3037 17.8744 29.2454C22.9577 28.74 26.6689 24.2094 26.1634 19.1261C25.693 14.3951 21.7127 10.7913 16.9584 10.7917Z" fill="#F899CC"/>
+</svg>
+
+            <h3 class="fw-700 fs-600 text-black-70">Collaboration</h3>
+            <p class="text-black-40 fw-400 fs-400">Displaying the highest level of integrity in the way we conduct out business</p>
+          </img>
+        </div>
+        <div class="grid-cols">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M28.0105 23.0421L24.2704 26.481C22.3472 28.1575 20.0878 29.4032 17.6436 30.1346L18.6359 34.7645C18.6866 35.0009 18.7922 35.222 18.9441 35.4101C19.0961 35.5982 19.2901 35.7479 19.5105 35.8472C19.731 35.9465 19.9717 35.9925 20.2132 35.9816C20.4548 35.9707 20.6904 35.9032 20.901 35.7845L26.9216 32.3887C27.769 31.8739 28.4309 31.1031 28.8119 30.1877C29.1929 29.2723 29.2733 28.2596 29.0414 27.2955L28.0105 23.0421ZM11.8677 14.0295L15.0878 10.2064L11.0721 9.23745C10.0958 8.89702 9.02931 8.92138 8.0696 9.30603C7.10989 9.69067 6.32179 10.4096 5.85088 11.3301L2.45892 17.3424C2.34007 17.553 2.27243 17.7886 2.26147 18.0302C2.25051 18.2718 2.29654 18.5125 2.39583 18.733C2.49513 18.9535 2.6449 19.1475 2.83305 19.2994C3.0212 19.4513 3.24245 19.5569 3.47892 19.6074L8.21607 20.6229C9.00142 18.2122 10.2409 15.9742 11.8677 14.0295ZM26.4644 14.0918C26.9218 14.0918 27.3689 13.9561 27.7492 13.702C28.1295 13.4479 28.4259 13.0868 28.6009 12.6642C28.7759 12.2417 28.8217 11.7767 28.7325 11.3281C28.6432 10.8795 28.423 10.4675 28.0996 10.1441C27.7762 9.82066 27.3641 9.60042 26.9156 9.51119C26.467 9.42196 26.002 9.46776 25.5795 9.64279C25.1569 9.81781 24.7957 10.1142 24.5416 10.4945C24.2875 10.8748 24.1519 11.3219 24.1519 11.7793C24.1521 12.3925 24.3958 12.9806 24.8295 13.4142C25.2631 13.8478 25.8512 14.0915 26.4644 14.0918Z" fill="#ED017F"/>
+<path d="M35.5099 3.67891C35.4403 3.41486 35.3019 3.17399 35.1089 2.98091C34.9158 2.78782 34.6749 2.64944 34.4109 2.57987C31.2483 1.75781 27.9179 1.84596 24.8033 2.83417C21.6887 3.82239 18.9167 5.67045 16.8066 8.16543L11.8677 14.0295C9.40046 16.9723 7.83527 20.5648 7.36018 24.3755C7.32971 24.6097 7.35343 24.8478 7.42952 25.0713C7.50561 25.2949 7.63203 25.498 7.79903 25.665L12.5784 30.4443C12.7214 30.5875 12.8914 30.7011 13.0784 30.7786C13.2654 30.8561 13.4659 30.896 13.6683 30.896C13.7127 30.896 13.7571 30.8938 13.8023 30.89C17.6715 30.5703 21.3382 29.0259 24.2702 26.481L29.9175 21.2885C32.4213 19.1839 34.2761 16.4117 35.2661 13.2943C36.2562 10.1769 36.3407 6.84247 35.5099 3.67891V3.67891ZM26.4644 14.0917C26.007 14.0917 25.5599 13.956 25.1796 13.7019C24.7993 13.4478 24.5029 13.0867 24.3279 12.6641C24.1529 12.2416 24.1071 11.7766 24.1963 11.328C24.2855 10.8794 24.5058 10.4674 24.8292 10.144C25.1526 9.82058 25.5646 9.60033 26.0132 9.5111C26.4618 9.42188 26.9268 9.46767 27.3493 9.6427C27.7719 9.81773 28.133 10.1141 28.3871 10.4944C28.6412 10.8747 28.7769 11.3218 28.7769 11.7792C28.7766 12.3924 28.5329 12.9805 28.0993 13.4141C27.6657 13.8477 27.0776 14.0914 26.4644 14.0917V14.0917Z" fill="#F899CC"/>
+</svg>
+
+            <h3 class="fw-700 fs-600 text-black-70">Technology</h3>
+            <p class="text-black-40 fw-400 fs-400">Harnessing the power of Technology to deliver better customer experience</p>
+          </img>
+        </div>
+        <div class="grid-cols">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M29.625 9.75H8.04163C5.48732 9.75 3.41663 11.8207 3.41663 14.375V18.5697L13.9576 22.0833H23.709L34.25 18.5697V14.375C34.25 11.8207 32.1793 9.75 29.625 9.75Z" fill="#F899CC"/>
+<path d="M15.75 9.75V8.20833H21.9166V9.75H25V8.20833C24.998 6.50626 23.6187 5.12694 21.9166 5.125H15.75C14.0479 5.12694 12.6686 6.50626 12.6666 8.20833V9.75H15.75ZM13.9576 22.0833L3.41663 18.5696V28.25C3.41942 30.8032 5.48846 32.8722 8.04163 32.875H29.625C32.1781 32.8722 34.2472 30.8032 34.25 28.25V18.5696L23.709 22.0833H13.9576Z" fill="#ED017F"/>
+</svg>
+            <h3 class="fw-700 fs-600 text-black-70">Corporate</h3>
+            <p class="text-black-40 fw-400 fs-400">Setting the standard for the best Corporate Citizenship in the commumnities we work</p>
+          </img>
+        </div>
+        <div class="grid-cols">
+          <svg width="37" height="38" viewBox="0 0 37 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.5 19.4625L5.39587 11.3688L18.5 3.27502L31.6042 11.3688L18.5 19.4625Z" fill="#F899CC"/>
+<path d="M18.5 34.725V19.4625L31.6042 11.3688V26.6313L18.5 34.725Z" fill="#ED017F"/>
+<path d="M18.5 34.725L5.39587 26.6313V11.3688L18.5 19.4625V34.725Z" fill="#FCE0EF"/>
+</svg>
+
+            <h3 class="fw-700 fs-600 text-black-70">Digital</h3>
+            <p class="text-black-40 fw-400 fs-400">Setting the standard for the best Corporate Citizenship in the commumnities we work</p>
+          </img>
+        </div>
+      </div>
+    </section>
+      <div class="shadow">
+       Contact Us<br>
+       General Enquiries:
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+      </svg>7730901271 (Tollfree) / 7287836271 (Tollfree - Covid Support) / 1212121212 (chargeable number) 24 X 7<br>
+      Locate Us:
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg><a href="#Search for Banks or Atm">Search for Banks or Atm</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+      </svg><a href="#Locate on map for bank or atm">Locate on map for bank or atm</a>
+      </div>
+      <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+        </script>
+</body>
+</html>
